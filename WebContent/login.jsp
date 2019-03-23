@@ -10,6 +10,7 @@
 <title>Login Page</title>
 </head>
 <body>
+
 	<%out.print("Hello!"); %>
 	<%= new java.util.Date() %>
 	
@@ -37,7 +38,7 @@
 	Password: <input type="password" name="password" id="password"><br>
 	<input type="submit" name="submit" value="login"><br>
 	<a href="register.jsp">registration</a>
-	
+	<a href="adminLogin.jsp">admin portal</a>
 	</form>
 </body>
 </html>

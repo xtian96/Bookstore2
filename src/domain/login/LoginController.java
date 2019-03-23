@@ -27,6 +27,7 @@ public class LoginController extends HttpServlet {
 		String submitType = request.getParameter("submit");
 		Login login = new Login(username, pass);
 		Customer c = customerDao.validateCustomer(login);
+
 		
 		if(submitType.equals("login") && c!=null && c.getName()!=null){
 			request.setAttribute("message", "Hello "+c.getName());
@@ -38,7 +39,11 @@ public class LoginController extends HttpServlet {
 			customerDao.register(c);
 			request.setAttribute("successMessage", "Registration done, please login!");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}else{
+		}else if(submitType.equals("admin")) {
+			
+		}
+		
+		else{
 			request.setAttribute("message", "Data Not Found! Please register!");
 			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
