@@ -9,6 +9,7 @@
 <body>
 <h1> ${message} !!! </h1>
 
+<a href="addBook.jsp">Add a book</a>
 
 	<a href="logout.jsp">logout</a>
 

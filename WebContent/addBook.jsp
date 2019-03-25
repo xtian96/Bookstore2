@@ -11,18 +11,15 @@
 <body>
 	
 	<%out.print("Hello!"); %>
-	<%= new java.util.Date() %>
 	
-	
-	<%! int number1, number2; %>
 	
 	<%
 		DbManager db = new DbManager();
 		Connection conn = (Connection) db.getConnection();
 		if(conn == null)
-			out.print("failed");
+			out.print("connection failed");
 		else
-			out.print("succeeded");
+			out.print("Please enter the information for the book you would like to add");
 	
 	%>
 	<form name="addBookForm" action="AddBook" method="post" onsubmit="return loginValidate()">
