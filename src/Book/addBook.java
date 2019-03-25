@@ -30,8 +30,8 @@ public class AddBook extends HttpServlet {
 		Book b = new Book(title, author, isbn, 0);
 //		b.setPrice(price);
 		bdao.register(b);
-		if(submitType.equals("submit") && b!=null && b.getTitle()!=null && b.getAuthor()!=null && b.getISBN()!=null){ 
-			request.setAttribute("message", b.getTitle() +" by " + b.getAuthor()+ " (ISBN: "+b.getISBN() + " has been added successfully!");
+		if(submitType.equals("submit") && b!=null && b.getTitle()!="" && b.getAuthor()!="" && b.getISBN()!=""){ 
+			request.setAttribute("message", b.getTitle() +" by " + b.getAuthor()+ " (ISBN: "+b.getISBN() + ") has been added successfully!");
 			request.getRequestDispatcher("addBook.jsp").forward(request, response);
 			
 		}
