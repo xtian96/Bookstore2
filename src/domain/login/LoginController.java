@@ -39,10 +39,7 @@ public class LoginController extends HttpServlet {
 			customerDao.register(c);
 			request.setAttribute("successMessage", "Registration done, please login!");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}else if(submitType.equals("admin")) {
-			
-		}
-		
+		}		
 		else{
 			request.setAttribute("message", "Data Not Found! Please register!");
 			request.getRequestDispatcher("register.jsp").forward(request, response);

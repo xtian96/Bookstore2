@@ -19,8 +19,9 @@
 			out.print("succeeded");
 	
 	%>
-	Admin User: <input type="text" name="bookname" id="bookname"><br>
+	<br>
+	Admin User: <input type="text" name="admin" id="admin"><br>
 	Password: <input type="password" name ="password" id="password"><br>
-	<input type="submit" name="submit" value="submit book"><br>
+	<input type="submit" name="submit" value="submit"><br>
 </body>
 </html>

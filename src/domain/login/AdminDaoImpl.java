@@ -19,7 +19,7 @@ public class AdminDaoImpl implements AdminDao {
 		int status = 0;
 		try{
 			conn = db.getConnection();
-			ps =conn.prepareStatement("insert into customer values(?,?,?)");
+			ps =conn.prepareStatement("insert into admin values(?,?,?)");
 			ps.setString(1, c.getUsername());
 			ps.setString(2, c.getPassword());
 			ps.setString(3, c.getName());
@@ -36,7 +36,7 @@ public class AdminDaoImpl implements AdminDao {
 		Admin c = new Admin();
 		try{
 			conn = db.getConnection();
-			ps =conn.prepareStatement("select * from customer where userId=? and password=?");
+			ps =conn.prepareStatement("select * from admin where userId=? and password=?");
 			ps.setString(1, login.getUsername());
 			ps.setString(2, login.getPassword());
 
