@@ -9,7 +9,7 @@ public interface BookDao {
 	/*
 	 * Retrieve the book object from the database
 	 */
-	public Book validateBook(String title);
+	//public Book validateBook(String title);
 	
 
 	

@@ -5,26 +5,31 @@ public class Book {
 	private String ISBN;
 	private double price;
 	private String author;
-	
-	public void setTitle(String s)
+	public Book(String t, String a, String i, double p){
+		title = t;
+		author = a;
+		ISBN = i;
+		price = p;
+	}
+	public void setTitle(String t)
 	{
-		title = s;
+		title = t;
 	}
 	public String getTitle()
 	{
 		return title;
 	}
-	public void setISBN(String s)
+	public void setISBN(String i)
 	{
-		title = s;
+		ISBN = i;
 	}
 	public String getISBN()
 	{
 		return ISBN;
 	}
-	public void setAuthor(String s)
+	public void setAuthor(String a)
 	{
-		author = s;
+		author = a;
 	}
 	public String getAuthor()
 	{
@@ -39,3 +44,4 @@ public class Book {
 		return price;
 	}
 }
+
