@@ -45,15 +45,15 @@ rs = statement.executeQuery(QueryString);
 while (rs.next()) {
 %>
 <TR>
-<TD align="center"><A HREF="singleBook.jsp">
+<TD align="center"><A HREF="singleBook.jsp" value=<%rs.getString(1);%>>
 <font size="4" color="blue"><%=rs.getString(1)%></font>
 </A></TD>
-<TD align="center"><A HREF="singleBook.jsp">
-<font size="4" color="blue"><%=rs.getString(2)%></font>
-</A></TD>
-<TD align="center"><A HREF="singleBook.jsp">
-<font size="4" color="blue"><%=rs.getString(3)%></font>
-</A></TD>
+<TD align="center">
+<font size="4" color="black"><%=rs.getString(2)%></font>
+</TD>
+<TD align="center">
+<font size="4" color="black"><%=rs.getString(3)%></font>
+</TD>
 </TR>
 <% } %>
 <%
