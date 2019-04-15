@@ -5,6 +5,7 @@ package domain.login;
  * @author mehra
  * This is the Customer before the validation.
  */
+
 public class Login {
 	private String username;
 	private String password;

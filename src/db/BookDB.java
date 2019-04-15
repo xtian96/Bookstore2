@@ -1,5 +1,5 @@
 package db;
 
-public interface BookDB {
+public class BookDB {
 
 }

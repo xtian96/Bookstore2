@@ -14,15 +14,16 @@ public class AdminDaoImpl implements AdminDao {
 	static PreparedStatement ps;
 	DbManager db = new DbManager();
 	
+	
 	@Override
-	public int register(Admin c) {
+	public int register(Admin a) {
 		int status = 0;
 		try{
 			conn = db.getConnection();
 			ps =conn.prepareStatement("insert into admin values(?,?,?)");
-			ps.setString(1, c.getUsername());
-			ps.setString(2, c.getPassword());
-			ps.setString(3, c.getName());
+			ps.setString(1, a.getUsername());
+			ps.setString(2, a.getPassword());
+			ps.setString(3, a.getName());
 			status = ps.executeUpdate();
 			conn.close();
 		}catch(Exception e){
@@ -30,10 +31,12 @@ public class AdminDaoImpl implements AdminDao {
 		}
 		return status;
 	}
+	
+	
 
 	@Override
-	public Admin validateAdmin(Login login) {
-		Admin c = new Admin();
+	public Admin validateAdmin(AdminLogin login) {
+		Admin a = new Admin();
 		try{
 			conn = db.getConnection();
 			ps =conn.prepareStatement("select * from admin where userId=? and password=?");
@@ -42,15 +45,15 @@ public class AdminDaoImpl implements AdminDao {
 
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				c.setUsername(rs.getString(1));
-				c.setPassword(rs.getString(2));
-				c.setName(rs.getString(3));
+				a.setUsername(rs.getString(1));
+				a.setPassword(rs.getString(2));
+				a.setName(rs.getString(3));
 			}
 			conn.close();
 		}catch(Exception e){
 			System.out.println(e);
 		}
-		return c;
+		return a;
 	}
 
 }

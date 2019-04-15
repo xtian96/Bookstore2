@@ -22,15 +22,20 @@ public class LoginController extends HttpServlet {
 		
 		CustomerDao customerDao = new CustomerDaoImpl();
 		
+		
 		String username = request.getParameter("username");
-		String pass = request.getParameter("password");
+		String password = request.getParameter("password");
 		String submitType = request.getParameter("submit");
-		Login login = new Login(username, pass);
+		
+		Login login = new Login(username, password);
+		
+		
+		
 		Customer c = customerDao.validateCustomer(login);
 
 		
 		if(submitType.equals("login") && c!=null && c.getName()!=null){
-			request.setAttribute("message", "Hello "+c.getName());
+			request.setAttribute("message", "Hello "+c.getName() + ",");
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 		}else if(submitType.equals("register")){
 			c.setName(request.getParameter("name"));
@@ -44,6 +49,10 @@ public class LoginController extends HttpServlet {
 			request.setAttribute("message", "Data Not Found! Please register!");
 			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
+		
+		
+		
+		
 
 	}
 

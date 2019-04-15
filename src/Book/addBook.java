@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/AddBook")
+@WebServlet("/addBook")
 public class AddBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,20 +24,20 @@ public class AddBook extends HttpServlet {
 		String title = request.getParameter("title");
 		String author = request.getParameter("author");
 		String isbn = request.getParameter("ISBN");
+		//float price = request.getParameter("price");
+		String link = request.getParameter("link");
 		
-		//double price = Double.parseDouble(request.getParameter("price"));
+	//	price = Double.parseDouble(request.getParameter("price"));
 		String submitType = request.getParameter("submit");
-		Book b = new Book(title, author, isbn, 0);
+		Book b = new Book(title, author, isbn, 0, link);
 //		b.setPrice(price);
 		bdao.register(b);
-		if(submitType.equals("submit") && b!=null && b.getTitle()!="" && b.getAuthor()!="" && b.getISBN()!=""){ 
-			request.setAttribute("message", b.getTitle() +" by " + b.getAuthor()+ " (ISBN: "+b.getISBN() + ") has been added successfully!");
-			request.getRequestDispatcher("addBook.jsp").forward(request, response);
-			
+		if(submitType.equals("submit") && b!=null && b.getTitle()!=null && b.getAuthor()!=null && b.getISBN()!=null && b.getLink()!=null){ 
+			request.setAttribute("yesMessage", b.getTitle() +" by " + b.getAuthor()+ " (ISBN: "+b.getISBN() + ") has been added successfully!");
+			request.getRequestDispatcher("addBook.jsp").forward(request, response);		
 		}
 		else{
-		
-		request.setAttribute("message", b.getISBN() + "Unsuccessful entry. Please try again (make sure to fill out all fields)");
+		request.setAttribute("noMessage", b.getISBN() + "Unsuccessful entry. Please try again (make sure to fill out all fields)");
 		request.getRequestDispatcher("addBook.jsp").forward(request, response);
 			}
 	}

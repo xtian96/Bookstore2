@@ -1,3 +1,4 @@
+    
 package Book;
 
 import java.io.IOException;
@@ -17,6 +18,8 @@ public class BookController extends HttpServlet {
 			String title = request.getParameter("title");
 			String author = request.getParameter("author");
 			String isbn = request.getParameter("isbn");
+			//float price = request.getParameter("price");
+			String link = request.getParameter("link");
 			String submitType = request.getParameter("submit");
 			Book b = bdao.validateBook(title,author,isbn,0);
 			if(submitType.equals(isbn))
@@ -26,4 +29,3 @@ public class BookController extends HttpServlet {
 		
 		}
 	}
-
